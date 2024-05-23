@@ -4,11 +4,12 @@ import { UserSecretStorageService } from '@/shared/lib/helpers/userSecretStorage
 
 const initialState: UserSchema = {
     user: {
-        login: await UserSecretStorageService.getLogin() || '',
-        name: await UserSecretStorageService.getName() || '',
+        login: '',
+        name: '',
     },
-    isAuth: await UserSecretStorageService.isValid(),
+    isAuth: false,
 };
+
 
 interface SigninPayload {
     readonly token: string

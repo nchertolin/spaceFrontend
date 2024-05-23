@@ -1,8 +1,6 @@
-import { ChangeEvent, memo } from 'react';
+import { ChangeEvent, memo, ReactNode } from 'react';
 import { GridColDef, GridSlots } from '@mui/x-data-grid';
-import {
-    LinearProgress, Pagination, SelectChangeEvent, Stack, Typography,
-} from '@mui/material';
+import { LinearProgress, Pagination, SelectChangeEvent, Stack, Typography, } from '@mui/material';
 import { IRow } from '../model/IRow.ts';
 import { BaseDataGrid } from '@/shared/ui/DataGrid/BaseDataGrid';
 import { BaseDatePicker, BaseSelect, Search } from '@/shared/ui/Inputs';
@@ -13,7 +11,7 @@ interface ClientPurchasesTableProps {
     readonly rows: IRow[],
     readonly pagesCount: number,
     readonly limit: string,
-    readonly onLimitChange: (e: SelectChangeEvent) => void,
+    readonly onLimitChange: (event: SelectChangeEvent<unknown>, child: ReactNode) => void,
     readonly page: number,
     readonly isLoading: boolean,
     readonly onPageChange: (_: ChangeEvent<unknown>, value: number) => void,
@@ -30,7 +28,7 @@ export const BaseDataTable = memo((props: ClientPurchasesTableProps) => {
         columns, rows, pagesCount, limit, page, onLimitChange, onPageChange,
         isLoading, startDate, endDate, onStartDateChange, onEndDateChange, search, onSearchChange,
     } = props;
-
+    
     return (
         <Stack spacing={6}>
             <Stack spacing={6} direction="row" justifyContent="space-between" alignItems="center">
@@ -53,7 +51,7 @@ export const BaseDataTable = memo((props: ClientPurchasesTableProps) => {
                     sx={{ width: '40%' }}
                 />
             </Stack>
-
+            
             <BaseDataGrid
                 loading={isLoading}
                 rows={rows}
@@ -68,9 +66,9 @@ export const BaseDataTable = memo((props: ClientPurchasesTableProps) => {
                     noResultsOverlay: EmptyDataOverlay,
                 }}
                 sx={{ '--DataGrid-overlayHeight': '500px' }}
-
+            
             />
-
+            
             <Stack
                 spacing={6}
                 direction="row"

@@ -1,10 +1,8 @@
-import {
-    FormControl, InputLabel, MenuItem, Select, SelectProps,
-} from '@mui/material';
+import { FormControl, InputLabel, MenuItem, Select, SelectProps, } from '@mui/material';
 
-export const BaseSelect = (props: SelectProps & { values: string[], helperText: string }) => {
+export const BaseSelect = (props: SelectProps & { values: string[], helperText?: string }) => {
     const { values, label, ...otherProps } = props;
-
+    
     return (
         <FormControl>
             <InputLabel>{label}</InputLabel>
@@ -19,6 +17,6 @@ export const BaseSelect = (props: SelectProps & { values: string[], helperText: 
                 ))}
             </Select>
         </FormControl>
-
+    
     );
 };

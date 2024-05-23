@@ -1,3 +1,3 @@
 export {
-    AddClientModal,
+    AddServiceModal,
 } from './ui/AddServiceModal.tsx';
