@@ -1,0 +1,14 @@
+@import url("reset.css");
+@import url("variables/global.css");
+@import url("fonts.css");
+
+a {
+    color: var(--primary-color);
+    text-underline-offset: 5px;
+}
+
+a:hover {
+    color: var(--primary-color);
+    opacity: 0.8;
+    transition: .3s ease;
+}

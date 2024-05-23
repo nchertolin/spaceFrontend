@@ -1,0 +1,5 @@
+.card {
+    width: 100%;
+    border-radius: var(--border-radius);
+    min-width: 300px;
+}

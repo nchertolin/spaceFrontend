@@ -1,0 +1,19 @@
+:root {
+    --space-s: 8px;
+    --space-m: calc(var(--space-s) * 2);
+    --space-l: calc(var(--space-s) * 3);
+    --space-xl: calc(var(--space-s) * 4);
+    --border-radius: 8px;
+
+    --bg-color: #121212;
+    --paper-color: #19181D;
+
+    --primary-color: #FFFFFF;
+    --dark-primary-color: #555555;
+
+    --secondary-color: #1F1D23;
+    --dark-secondary-color: #141317;
+
+    --border-color: #555555;
+}
+
