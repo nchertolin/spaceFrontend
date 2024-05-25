@@ -7,7 +7,6 @@ const initialState: UserSchema = {
     isAuth: false,
 };
 
-
 interface SigninPayload {
     readonly id: number
     readonly login: string,

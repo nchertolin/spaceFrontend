@@ -1,3 +1,3 @@
 export {
-  NavigationMenu,
+    NavigationMenu,
 } from './ui/Menu.tsx';

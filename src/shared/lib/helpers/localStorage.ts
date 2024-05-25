@@ -5,7 +5,7 @@ export namespace LocalStorageService {
             resolve();
         });
     }
-    
+
     export function get<T = unknown>(key: string): T | undefined {
         const item = localStorage.getItem(key);
         if (item != null) {
@@ -17,14 +17,14 @@ export namespace LocalStorageService {
         }
         return undefined;
     }
-    
+
     export function remove(key: string): Promise<void> {
         return new Promise((resolve) => {
             localStorage.removeItem(key);
             resolve();
         });
     }
-    
+
     export function clear(): Promise<void> {
         return new Promise((resolve) => {
             localStorage.clear();

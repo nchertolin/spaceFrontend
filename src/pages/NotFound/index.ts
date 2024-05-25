@@ -1,3 +1,3 @@
 export {
-    NotFoundPageAsync as NotFoundPage
+    NotFoundPageAsync as NotFoundPage,
 } from './ui/NotFoundPage.async.tsx';
