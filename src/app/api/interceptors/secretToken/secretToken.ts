@@ -1,10 +1,10 @@
 import { UserSecretStorageService } from '@/shared/lib/helpers/userSecretStorage.ts';
 import { AuthRoutePath } from '@/shared/config/routeConfig/routeConfig.tsx';
 
-const getAuthorizationHeaderValue = (secret: string): string => `Bearer ${secret}`;
+const getAuthorizationHeaderValue = (secret: string | undefined): string => `Bearer ${secret}`;
 
 export const getSecretHeader = async () => getAuthorizationHeaderValue(
-    await UserSecretStorageService.get() || '',
+    UserSecretStorageService.get(),
 );
 
 export const unauthorizedHandler = (status: number) => {
