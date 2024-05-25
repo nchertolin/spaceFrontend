@@ -6,18 +6,16 @@ export namespace LocalStorageService {
         });
     }
 
-    export function get<T = unknown>(key: string): Promise<T | null> {
-        return new Promise((resolve, reject) => {
-            const item = localStorage.getItem(key);
-            if (item != null) {
-                try {
-                    resolve(JSON.parse(item));
-                } catch {
-                    reject('Invalid json');
-                }
+    export function get<T = unknown>(key: string): T | undefined {
+        const item = localStorage.getItem(key);
+        if (item != null) {
+            try {
+                return JSON.parse(item);
+            } catch {
+                return undefined;
             }
-            resolve(null);
-        });
+        }
+        return undefined;
     }
 
     export function remove(key: string): Promise<void> {

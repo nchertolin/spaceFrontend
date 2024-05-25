@@ -3,18 +3,15 @@ import { UserSchema } from '@/entities/User/models/types/UserSchema.ts';
 import { UserSecretStorageService } from '@/shared/lib/helpers/userSecretStorage.ts';
 
 const initialState: UserSchema = {
-    user: {
-        login: '',
-        name: '',
-    },
+    user: UserSecretStorageService.getUser(),
     isAuth: false,
 };
 
-
 interface SigninPayload {
-    readonly token: string
+    readonly id: number
     readonly login: string,
     readonly name: string,
+    readonly token: string
 }
 
 export const userSlice = createSlice({
@@ -27,7 +24,7 @@ export const userSlice = createSlice({
         },
         signin: (state, action: PayloadAction<SigninPayload>) => {
             const { token, login, name } = action.payload;
-            UserSecretStorageService.save(token, login, name);
+            UserSecretStorageService.save(token, name, login);
             state.user = { login, name };
             state.isAuth = true;
         },

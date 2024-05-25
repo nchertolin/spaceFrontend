@@ -10,6 +10,7 @@ interface IRequest {
 }
 
 interface IResponse {
+    readonly id: number;
     readonly token: string;
     readonly login: string;
     readonly name: string;

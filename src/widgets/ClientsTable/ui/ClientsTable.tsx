@@ -1,4 +1,6 @@
-import { ChangeEvent, memo, ReactNode, useMemo, useState, } from 'react';
+import {
+    ChangeEvent, memo, ReactNode, useMemo, useState,
+} from 'react';
 import { SelectChangeEvent } from '@mui/material';
 import { usePurchasesQuery } from '../api/clientsApi.ts';
 
@@ -23,13 +25,13 @@ export const ClientsTable = memo(() => {
         () => getPagesCount(data?.count || 0, Number(limit)),
         [data?.count, limit],
     );
-    
+
     const onLimitChange = (e: SelectChangeEvent<unknown>, _: ReactNode) => setLimit(e.target.value as string);
     const onPageChange = (_: ChangeEvent<unknown>, value: number) => setPage(value);
     const onStartDateChange = (newValue: Date) => setStartDate(newValue);
     const onEndDateChange = (newValue: Date) => setEndDate(newValue);
     const onSearchChange = (e: ChangeEvent<HTMLInputElement>) => setSearch(e.target.value);
-    
+
     return (
         <BaseDataTable
             isLoading={isLoading}
