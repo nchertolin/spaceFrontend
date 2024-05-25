@@ -24,7 +24,7 @@ const postData = async (data: IRequest): Promise<IResponse> => {
 export const useSigninMutation = () => {
     const { signin: userSignin } = useActions();
     const navigate = useNavigate();
-    
+
     const { isPending, mutateAsync: signin } = useMutation({
         mutationFn: async (data: IRequest) => postData(data),
         onSuccess: (data: IResponse) => {
@@ -34,6 +34,6 @@ export const useSigninMutation = () => {
         },
         onError: () => toast.error('Ошибка авторизации'),
     });
-    
+
     return { isPending, signin };
 };
