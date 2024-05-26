@@ -4,7 +4,7 @@ import { UserSecretStorageService } from '@/shared/lib/helpers/userSecretStorage
 
 const initialState: UserSchema = {
     user: UserSecretStorageService.getUser(),
-    isAuth: false,
+    isAuth: UserSecretStorageService.isValid(),
 };
 
 interface SigninPayload {
@@ -27,6 +27,9 @@ export const userSlice = createSlice({
             UserSecretStorageService.save(token, name, login);
             state.user = { login, name };
             state.isAuth = true;
+        },
+        init: (state, action: PayloadAction<boolean>) => {
+            state.isAuth = action.payload;
         },
     },
 });

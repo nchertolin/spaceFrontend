@@ -6,7 +6,7 @@ const getClients = async (): Promise<{ id: number, label: string }[]> => {
     return res.data;
 };
 
-export const useClientsQuery = () => {
+export const useClientsShortQuery = () => {
     const { isLoading, data } = useQuery(
         {
             queryKey: ['clients/select'],

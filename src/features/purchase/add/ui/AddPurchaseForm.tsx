@@ -10,7 +10,7 @@ import { useAddPurchaseMutation } from '../api/addPurchaseApi';
 import {
     BaseAutocomplete, BaseButton, BaseDatePicker, Field,
 } from '@/shared/ui/Inputs';
-import { useClientsQuery } from '../api/getClientsApi';
+import { useClientsShortQuery } from '../api/getClientsApi';
 import { useServicesQuery } from '../api/getServicesApi';
 import { AddServiceModal } from '@/features/service/add/ui/AddServiceModal.tsx';
 
@@ -30,7 +30,7 @@ export const AddPurchaseForm = memo(() => {
         reset();
     };
 
-    const { isLoading: isClientsLoading, data: clients } = useClientsQuery();
+    const { isLoading: isClientsLoading, data: clients } = useClientsShortQuery();
     const { isLoading: isServicesLoading, data: services } = useServicesQuery();
     const { isPending, addPurchase } = useAddPurchaseMutation(handleSuccessPost);
 

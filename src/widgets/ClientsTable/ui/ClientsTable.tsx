@@ -2,7 +2,7 @@ import {
     ChangeEvent, memo, ReactNode, useMemo, useState,
 } from 'react';
 import { SelectChangeEvent } from '@mui/material';
-import { usePurchasesQuery } from '../api/clientsApi.ts';
+import { useClientsQuery } from '../api/clientsApi.ts';
 
 import { BaseDataTable } from '@/widgets/DataTable';
 import { columns } from '../lib/const.tsx';
@@ -14,13 +14,14 @@ export const ClientsTable = memo(() => {
     const [search, setSearch] = useState('');
     const [limit, setLimit] = useState('10');
     const [page, setPage] = useState(1);
-    const { isLoading, data } = usePurchasesQuery({
+    const { isLoading, data } = useClientsQuery({
         limit: Number(limit),
         page,
         search,
         startDate,
         endDate,
     });
+
     const pagesCount = useMemo(
         () => getPagesCount(data?.count || 0, Number(limit)),
         [data?.count, limit],

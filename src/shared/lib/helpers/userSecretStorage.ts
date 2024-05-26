@@ -2,7 +2,7 @@ import { LocalStorageService } from './localStorage';
 
 export namespace UserSecretStorageService {
     const USER_SECRET_KEY = 'USER_SECRET_KEY';
-    const USER_NAME = 'USER_ID';
+    const USER_NAME = 'USER_NAME';
     const USER_LOGIN = 'USER_ID';
 
     export async function save(secret: string, name: string, login: string): Promise<void> {
@@ -33,8 +33,8 @@ export namespace UserSecretStorageService {
         await LocalStorageService.clear();
     }
 
-    export async function isValid(): Promise<boolean> {
-        const secret = await get();
+    export function isValid(): boolean {
+        const secret = get();
         return secret !== null;
     }
 }

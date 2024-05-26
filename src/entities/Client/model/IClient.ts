@@ -9,3 +9,12 @@ export interface IClient {
     readonly lastPurchase?: ILastPurchase;
     readonly purchases?: IPurchase[];
 }
+
+export interface ClientDto {
+    readonly id: number;
+    readonly name: string;
+    readonly phone: string;
+    readonly bonuses: number;
+    readonly description: string;
+    readonly purchases?: IPurchase[];
+}
